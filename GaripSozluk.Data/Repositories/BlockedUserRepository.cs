@@ -26,6 +26,11 @@ namespace GaripSozluk.Data.Repositories
             throw new NotImplementedException();
         }
 
+        public IQueryable<Post> GetAllPostByHeaderId(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public Post Update(Post entity)
         {
             throw new NotImplementedException();

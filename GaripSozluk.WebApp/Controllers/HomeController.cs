@@ -29,8 +29,9 @@ namespace GaripSozluk.WebApp.Controllers
         {
             _logger.LogDebug("Home>Index");
 
-            ViewBag.HeaderByCategory = _headerService.GetAllHeaderByCategoryId(1);
+            ViewBag.HeaderByCategory = _headerService.GetAllHeaderByCategoryId(id);
             ViewBag.HeaderCategoryList = _headerCategoryService.GetHeadersSelect(id);
+            ViewBag.HeaderByCategoryID = _headerService.GetAllHeaderByCategoryId2(id);
             return View();
 
             //var resultCount = _postService.GetAll().Count();

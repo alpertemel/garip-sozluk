@@ -2,6 +2,7 @@
 using GaripSozluk.Common.ViewModels;
 using GaripSozluk.Data.Domain;
 using GaripSozluk.Data.Interfaces;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -50,6 +51,26 @@ namespace GaripSozluk.Business.Services
          public  IQueryable<Header> GetAllHeaderByCategoryId(int id)
         {
             return _headerRepository.GetAllHeaderByCategoryId(id);
+        }
+        public List<SelectListItem> GetAllHeaderByCategoryId2(int id)
+        {
+            var list = new List<SelectListItem>();
+
+            var headers = GetAllHeaderByCategoryId(id);
+
+            foreach (var item in headers)
+            {
+                if (item.Id != id)
+                {
+                    list.Add(new SelectListItem(item.Title, item.Id.ToString()));
+                }
+                else
+                {
+                    list.Add(new SelectListItem(item.Title, item.Id.ToString(), true));
+                }
+
+            }
+            return list;
         }
 
     }

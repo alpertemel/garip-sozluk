@@ -2,6 +2,7 @@
 using GaripSozluk.Data.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace GaripSozluk.Data.Repositories
@@ -12,6 +13,10 @@ namespace GaripSozluk.Data.Repositories
         public PostRepository(GaripSozlukDbContext context) : base(context)
         {
             _context = context;
+        }
+        public IQueryable<Post> GetAllPostByHeaderId(int id)
+        {
+            return GetAll().Where(x => x.HeaderId == id);
         }
     }
 }

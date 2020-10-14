@@ -48,7 +48,7 @@
                                 {
                                     <a class="dropdown-item preview-item"asp-area="" asp-controller="Header" asp-action="GetCategoryHeader" asp-route-CategoryID="@item.Value">
                                         <div class="preview-item-content">
-                                            <a class="preview-subject ellipsis mb-1 text-small">@item.Text</a>
+                                            <p class="preview-subject ellipsis mb-1 text-small">@item.Text</p>
                                         </div>
                                     </a>
                                 }
@@ -60,12 +60,12 @@
                 <li class="nav-item nav-category">
                     <span class="nav-link text-light">En Yeniler</span>
                 </li>
-                @if (ViewBag.HeaderByCategory != null)
+                @if (ViewBag.HeaderByCategoryID != null)
                 {
-                    @foreach (var item in ViewBag.HeaderByCategory)
+                    @foreach (var item in ViewBag.HeaderByCategoryID)
                     {
                         <li class="nav-item menu-items nav-category">
-                            <p><a href="/header/getheader">@item.Title</a></p>
+                            <p><a asp-route-HeaderID="@item.Value">@item.Title</a></p>
                         </li>
                     }
                 }

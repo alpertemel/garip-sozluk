@@ -25,7 +25,7 @@ namespace GaripSozluk.WebApp.Controllers
         [Authorize]
         public IActionResult CreateHeader(int id)
         {
-            ViewBag.HeaderCategoryList = _headerCategoryService.GetHeadersSelect(id);
+            ViewBag.HeaderCategoryList = _headerCategoryService.GetHeadersSelect(id); //kategorileri çekiyor
             ViewBag.Headers = _headerService.GetAll();
             return View();
         }
@@ -52,7 +52,7 @@ namespace GaripSozluk.WebApp.Controllers
             //ViewBag.HeaderCategoryList = _headerCategoryService.HeaderCategoryList();
             ViewBag.Headers = _headerService.GetAll();
             ViewBag.HeaderByCategory = _headerService.GetAllHeaderByCategoryId(CategoryID);
-            ViewBag.HeaderCategoryList = _headerCategoryService.GetHeadersSelect(id);
+            ViewBag.HeaderCategoryList = _headerCategoryService.GetHeadersSelect(id); //kategorileri Çekiyor
             return View();
         }
 
