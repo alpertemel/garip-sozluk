@@ -1,0 +1,88 @@
+﻿@model RegisterVM
+@{
+    ViewData["Title"] = "Kaydol";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Güzel Sözlük</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="~/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="~/vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <!-- End Plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="~/css/style.css">
+    <!-- End layout styles -->
+    <link rel="shortcut icon" href="~/images/favicon.png" />
+</head>
+<body>
+    <div class="container-scroller">
+        <div class="container-fluid page-body-wrapper full-page-wrapper">
+            <div class="row w-100 m-0">
+                <div class="content-wrapper full-page-wrapper d-flex align-items-center auth login-bg">
+                    <div class="card col-lg-4 mx-auto">
+                        <div class="card-body px-5 py-5">
+                            <h3 class="card-title text-center">Kayıt Ol</h3>
+                            <form asp-controller="Account" asp-action="Register" method="post">
+                                <div class="form-group">
+                                    <label>Kullanıcı Adı</label>
+                                    <input type="text" class="form-control p_input" placeholder="Kullanıcı adı" asp-for="Username">
+                                </div>
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input type="email" class="form-control" placeholder="Email" asp-for="MailAddress">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Şifre</label>
+                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Şifre" asp-for="Password">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Şifre Kontrol</label>
+                                    <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Şifre" asp-for="ConfirmPassword">
+                                </div>
+
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary btn-block enter-btn">Kayıt Ol</button>
+                                </div>
+                                <p class="sign-up text-center">Hesabınız var mı?<a href="/account/login"> Giriş Yap </a></p>
+                                <p class="terms">Kayıt olarak  okuduğunuzu ve kabul ettiğinizi onaylıyorsunuz. <a href="#">Kullanıcı Sözleşmesini</a>Kişisel verilerinizin işlenmesine ilişkin olarak lütfen Gizlilik ve Çerez Politikasını inceleyiniz.</p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- content-wrapper ends -->
+            </div>
+            <!-- row ends -->
+        </div>
+        <!-- page-body-wrapper ends -->
+    </div>
+    <script src="~/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="~/js/off-canvas.js"></script>
+    <script src="~/js/hoverable-collapse.js"></script>
+    <script src="~/js/misc.js"></script>
+    <script src="~/js/settings.js"></script>
+    <script src="~/js/todolist.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <!-- End custom js for this page -->
+</body>
+</html>
+
+@section Scripts {
+
+}

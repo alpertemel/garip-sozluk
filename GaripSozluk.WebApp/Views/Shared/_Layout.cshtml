@@ -1,0 +1,275 @@
+﻿@model IQueryable<GaripSozluk.Data.Domain.Header>
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Güzel Sözlük</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="~/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="~/vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <!-- End Plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="~/css/style.css">
+    <!-- End layout styles -->
+    <link rel="shortcut icon" href="~/images/favicon.png" />
+</head>
+<body>
+    <div class="container-scroller">
+
+        <!-- SOL MENÜ BAŞLANGIÇ -->
+        <nav class="sidebar sidebar-offcanvas" id="sidebar">
+            <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
+                <a class="sidebar-brand brand-logo" href="/home/index"><img src="~/images/logo.png" alt="logo" /></a>
+                <a class="sidebar-brand brand-logo-mini" href="/home/index"><img src="~/images/logo-mini.svg" alt="logo" /></a>
+            </div>
+            <ul class="nav ">
+                <li class="nav-item profile">
+                    <div class="profile-desc">
+                        <div class="profile-pic">
+                            <div class="count-indicator">
+                                <img class="img-xs rounded-circle " src="~/images/faces/861643-200.png" alt="">
+                            </div>
+                            <div class="profile-name">
+                                <h5 class="mb-0 font-weight-normal">Kategoriler</h5>
+                            </div>
+                        </div>
+                        <a href="#" id="profile-dropdown" data-toggle="dropdown"><i class="mdi mdi-dots-vertical"></i></a>
+
+                        <div class="dropdown-menu dropdown-menu-right sidebar-dropdown preview-list" aria-labelledby="profile-dropdown">
+                            @if (ViewBag.HeaderCategoryList != null)
+                            {
+                                @foreach (var item in ViewBag.HeaderCategoryList)
+                                {
+                                    <a class="dropdown-item preview-item"asp-area="" asp-controller="Header" asp-action="GetCategoryHeader" asp-route-CategoryID="@item.Value">
+                                        <div class="preview-item-content">
+                                            <a class="preview-subject ellipsis mb-1 text-small">@item.Text</a>
+                                        </div>
+                                    </a>
+                                }
+                            }
+                        </div>
+                    </div>
+                </li>
+
+                <li class="nav-item nav-category">
+                    <span class="nav-link text-light">En Yeniler</span>
+                </li>
+                @if (ViewBag.HeaderByCategory != null)
+                {
+                    @foreach (var item in ViewBag.HeaderByCategory)
+                    {
+                        <li class="nav-item menu-items nav-category">
+                            <p><a href="/header/getheader">@item.Title</a></p>
+                        </li>
+                    }
+                }
+            </ul>
+        </nav>
+        <!-- SOL MENÜ BİTİŞ -->
+
+        <div class="container-fluid page-body-wrapper">
+            <!-- partial:../../partials/_navbar.html -->
+            <nav class="navbar p-0 fixed-top d-flex flex-row">
+                <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
+                    <a class="navbar-brand brand-logo-mini" href="/home/index"><img src="~/images/logo-mini.svg" alt="logo" /></a>
+                </div>
+                <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
+
+                    <ul class="navbar-nav w-100">
+                        <li class="nav-item w-100">
+                            <form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search">
+                                <input type="text" class="form-control" placeholder="Başlık Arayın....">
+                            </form>
+                        </li>
+                    </ul>
+
+                    <ul class="navbar-nav navbar-nav-right">
+                        <li class="nav-item dropdown d-none d-lg-block">
+                            <a class="nav-link btn btn-success create-new-button" asp-controller="Header" asp-action="CreateHeader">+ Yeni Başlık Oluşturun</a>
+
+
+                            <!--Bildirimler Bölümü-->
+
+                        <li class="nav-item dropdown border-left">
+                            <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
+                                <i class="mdi mdi-bell"></i>
+                                <span class="count bg-danger"></span>
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
+                                <h6 class="p-3 mb-0">Bildirimler</h6>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item preview-item">
+                                    <div class="preview-thumbnail">
+                                        <!--   <div class="preview-icon bg-dark rounded-circle">
+                                            <i class="mdi mdi-text text-success"></i>
+                                          </div>
+                                        </div>
+                                        <div class="preview-item-content">
+                                         <p class="preview-subject mb-1">En Çok Beğenilen Entry</p> -->
+                                        <!--       <p class="text-muted "> Nasıl HTML Yazamıyorum Oynat Bakalım </p>eğer burada entryi kısaltmak istiyorsan ellipsis mb-0    -->
+                                    </div>
+
+                                </a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
+                                <div class="navbar-profile">
+
+                                    <p class="mb-0 d-none d-sm-block navbar-profile-name">Alper Temel</p>
+                                    <i class="mdi mdi-menu-down d-none d-sm-block"></i>
+                                </div>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="profileDropdown">
+                                <h6 class="p-3 mb-0">Profil</h6>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item preview-item">
+                                    <div class="preview-thumbnail">
+                                        <div class="preview-icon bg-dark rounded-circle">
+                                            <i class="mdi mdi-settings text-success"></i>
+                                        </div>
+                                    </div>
+                                    <div class="preview-item-content">
+                                        <p class="preview-subject mb-1">Hesap Ayarları</p>
+                                    </div>
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item preview-item">
+                                    <div class="preview-thumbnail">
+                                        <div class="preview-icon bg-dark rounded-circle">
+                                            <i class="mdi mdi-logout text-danger"></i>
+                                        </div>
+                                    </div>
+                                    <div class="preview-item-content">
+                                        <p class="preview-subject mb-1">Çıkış Yap</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+                    <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+                        <span class="mdi mdi-format-line-spacing"></span>
+                    </button>
+            </nav>
+            <!-- partial -->
+            <div class="main-panel">
+
+                <div class="content-wrapper">
+                    <div class="row">
+                        @RenderBody()
+                        <!--
+                          <div class="col-12 grid-margin">
+                            <div class="card">
+                              <div class="card-body">
+                                <h4 class="card-title text-center">Gündemdekiler</h4>
+                                <div class="preview-list">
+
+                                  <div class="preview-item border-bottom">
+                                    <div class="preview-item-content d-flex flex-grow">
+                                      <div class="flex-grow">
+                                        <div>
+                                          <h6 class="preview-subject text-primary"><a href="login.html">Wifi sifremi sampiyonlar ligi yaptim</a></h6>
+                                        </div>
+                                        <div class="d-flex d-md-block d-xl-flex justify-content-between">
+                                        <p class="text-muted">fenerliler giremiyor..</p>
+                                        <p class="text-muted text-small">icmaylabi06</p>
+                                      </div>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                  <div class="preview-item border-bottom">
+                                    <div class="preview-item-content d-flex flex-grow">
+                                      <div class="flex-grow">
+                                        <div>
+                                          <h6 class="preview-subject text-primary"><a href="login.html">mario balotelli</a></h6>
+                                        </div>
+                                        <div class="d-flex d-md-block d-xl-flex justify-content-between">
+                                        <p class="text-muted">gol attıktan sonra sevinmiyorum, çünkü sadece işimi yapıyorum. postacı mektup dağıtırken seviniyor mu?.</p>
+                                        <p class="text-muted text-small">ketcapli dondurma</p>
+                                      </div>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                  <div class="preview-item border-bottom">
+                                    <div class="preview-item-content d-flex flex-grow">
+                                      <div class="flex-grow">
+                                        <div>
+                                          <h6 class="preview-subject text-primary"><a href="login.html">hoşlanılan kızın yüzde 6 büyümesi</a></h6>
+                                        </div>
+                                        <div class="d-flex d-md-block d-xl-flex justify-content-between">
+                                        <p class="text-muted">yılın son çeyreğinde hamur işine gömülmesi sonucunda gerçekleşmiştir. yatırımcının yüzünü güldürmemiştir.</p>
+                                        <p class="text-muted text-small">bipolar express</p>
+                                      </div>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                  <div class="preview-item border-bottom">
+                                    <div class="preview-item-content d-flex flex-grow">
+                                      <div class="flex-grow">
+                                        <div>
+                                          <h6 class="preview-subject text-primary"><a href="login.html">bir üniversitede yaşanabilecek en dumur olaylar</a></h6>
+                                        </div>
+                                        <div class="d-flex d-md-block d-xl-flex justify-content-between">
+                                        <p class="text-muted">iki öğretim üyesi, yaz okulunda dertleşirlerken duyduğum konuşmanın tam metni şöyledir:
+                                          +hocam, ders anlatamıyorum, devamlı saatlerine bakıyorlar. dikkatim dağılıyor.
+                                          -seninkiler iyiymiş, benimkiler saate vuruyor, durdu mu diye.</p>
+                                        <p class="text-muted text-small"> kiri</p>
+                                      </div>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        -->
+                    </div>
+                </div>
+
+                <!-- content-wrapper ends -->
+                <!-- partial:../../partials/_footer.html -->
+                <footer class="footer">
+                    <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2020 <a href="http://www.alpertemel.com/" target="_blank">AlperTemel</a>. All rights reserved.</span>
+                        <span class="text-muted float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i class="mdi mdi-heart text-danger"></i></span>
+                    </div>
+                </footer>
+            </div>
+
+            <!-- main-panel ends -->
+        </div>
+        <!-- page-body-wrapper ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="~/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="~/js/off-canvas.js"></script>
+    <script src="~/js/hoverable-collapse.js"></script>
+    <script src="~/js/misc.js"></script>
+    <script src="~/js/settings.js"></script>
+    <script src="~/js/todolist.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <!-- End custom js for this page -->
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
+
+

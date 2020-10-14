@@ -1,0 +1,26 @@
+﻿@model HeaderVM
+@{
+    ViewData["Title"] = "Header Oluştur";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Header Oluşturyorsunuz...</h4>
+            <p class="card-description"> Oluşturmak istediğiniz headerın kategorisini aşağıdan seçebilirsiniz. </p>
+            <form class="forms-sample" asp-controller="Header" asp-action="CreateHeader" method="post">
+                <div class="form-group">
+                    <label for="exampleInputName1">Header İsmi</label>
+                    <input type="text" class="form-control" id="exampleInputName1" placeholder="Header İsmi" asp-for="Title">
+                </div>
+                <div class="form-group">
+                    <label for="exampleSelectGender">Kategori</label>
+                    <select class="form-control" id="exampleSelectGender" asp-for="CategoryId" asp-items="ViewBag.HeaderCategoryList">
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary mr-2">Oluştur</button>
+                <button class="btn btn-dark" asp-controller="home" asp-action="index">Vazgeç</button>
+            </form>
+        </div>
+    </div>
+</div>

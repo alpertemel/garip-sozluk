@@ -1,0 +1,21 @@
+﻿@model PostVM
+@{
+    ViewData["Title"] = "Post Ekle";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Post Oluşturyorsunuz...</h4>
+            <form class="forms-sample" asp-controller="Post" asp-action="AddPost" method="post">
+                <div class="form-group">
+                    <label>Post İçeriği</label>
+                    <textarea class="form-control" rows="4" asp-for="Content"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary mr-2">Oluştur</button>
+                <button class="btn btn-dark" asp-controller="home" asp-action="index">Vazgeç</button>
+            </form>
+        </div>
+    </div>
+</div>
+
