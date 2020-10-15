@@ -1,4 +1,4 @@
-﻿@model IQueryable<GaripSozluk.Data.Domain.Header>
+﻿@*@model IQueryable<GaripSozluk.Data.Domain.Header>*@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -60,12 +60,12 @@
                 <li class="nav-item nav-category">
                     <span class="nav-link text-light">En Yeniler</span>
                 </li>
-                @if (ViewBag.HeaderByCategoryID != null)
+                @if (ViewBag.HeaderByCategory != null)
                 {
-                    @foreach (var item in ViewBag.HeaderByCategoryID)
+                    @foreach (var item in ViewBag.HeaderByCategory)
                     {
                         <li class="nav-item menu-items nav-category">
-                            <p><a asp-route-HeaderID="@item.Value">@item.Title</a></p>
+                            <p><a asp-route-HeaderId="@item.Id" asp-controller="Post" asp-action="GetPost">@item.Title</a></p>
                         </li>
                     }
                 }
@@ -165,76 +165,7 @@
                 <div class="content-wrapper">
                     <div class="row">
                         @RenderBody()
-                        <!--
-                          <div class="col-12 grid-margin">
-                            <div class="card">
-                              <div class="card-body">
-                                <h4 class="card-title text-center">Gündemdekiler</h4>
-                                <div class="preview-list">
 
-                                  <div class="preview-item border-bottom">
-                                    <div class="preview-item-content d-flex flex-grow">
-                                      <div class="flex-grow">
-                                        <div>
-                                          <h6 class="preview-subject text-primary"><a href="login.html">Wifi sifremi sampiyonlar ligi yaptim</a></h6>
-                                        </div>
-                                        <div class="d-flex d-md-block d-xl-flex justify-content-between">
-                                        <p class="text-muted">fenerliler giremiyor..</p>
-                                        <p class="text-muted text-small">icmaylabi06</p>
-                                      </div>
-                                      </div>
-                                    </div>
-                                  </div>
-
-                                  <div class="preview-item border-bottom">
-                                    <div class="preview-item-content d-flex flex-grow">
-                                      <div class="flex-grow">
-                                        <div>
-                                          <h6 class="preview-subject text-primary"><a href="login.html">mario balotelli</a></h6>
-                                        </div>
-                                        <div class="d-flex d-md-block d-xl-flex justify-content-between">
-                                        <p class="text-muted">gol attıktan sonra sevinmiyorum, çünkü sadece işimi yapıyorum. postacı mektup dağıtırken seviniyor mu?.</p>
-                                        <p class="text-muted text-small">ketcapli dondurma</p>
-                                      </div>
-                                      </div>
-                                    </div>
-                                  </div>
-
-                                  <div class="preview-item border-bottom">
-                                    <div class="preview-item-content d-flex flex-grow">
-                                      <div class="flex-grow">
-                                        <div>
-                                          <h6 class="preview-subject text-primary"><a href="login.html">hoşlanılan kızın yüzde 6 büyümesi</a></h6>
-                                        </div>
-                                        <div class="d-flex d-md-block d-xl-flex justify-content-between">
-                                        <p class="text-muted">yılın son çeyreğinde hamur işine gömülmesi sonucunda gerçekleşmiştir. yatırımcının yüzünü güldürmemiştir.</p>
-                                        <p class="text-muted text-small">bipolar express</p>
-                                      </div>
-                                      </div>
-                                    </div>
-                                  </div>
-
-                                  <div class="preview-item border-bottom">
-                                    <div class="preview-item-content d-flex flex-grow">
-                                      <div class="flex-grow">
-                                        <div>
-                                          <h6 class="preview-subject text-primary"><a href="login.html">bir üniversitede yaşanabilecek en dumur olaylar</a></h6>
-                                        </div>
-                                        <div class="d-flex d-md-block d-xl-flex justify-content-between">
-                                        <p class="text-muted">iki öğretim üyesi, yaz okulunda dertleşirlerken duyduğum konuşmanın tam metni şöyledir:
-                                          +hocam, ders anlatamıyorum, devamlı saatlerine bakıyorlar. dikkatim dağılıyor.
-                                          -seninkiler iyiymiş, benimkiler saate vuruyor, durdu mu diye.</p>
-                                        <p class="text-muted text-small"> kiri</p>
-                                      </div>
-                                      </div>
-                                    </div>
-                                  </div>
-
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        -->
                     </div>
                 </div>
 

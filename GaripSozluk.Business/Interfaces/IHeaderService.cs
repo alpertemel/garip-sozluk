@@ -16,7 +16,6 @@ namespace GaripSozluk.Business.Interfaces
 
         Header AddHeader(HeaderVM model);
 
-        List<SelectListItem> GetAllHeaderByCategoryId2(int id);
 
     }
 }

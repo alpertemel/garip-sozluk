@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewData["Title"] = "GetPost";
+    int? headerId = Context.Request.Query["HeaderId"].Count > 0 ? int.Parse(Context.Request.Query["HeaderId"]) : 0;
+}
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <button type="button" class="btn btn-outline-primary btn-icon-text">
+                    @if (headerId == 0)
+                    {
+                        <a class="mdi mdi-upload btn-icon-prepend" asp-controller="Post" asp-action="AddPost" >Yorum Oluştur</a>
+                    }
+                    else
+                    {
+                        <a class="mdi mdi-upload btn-icon-prepend" asp-controller="Post" asp-action="AddPost" asp-route-HeaderId="@headerId">Yorum Oluştur</a>
+                    }
+                </button>
+            </div>
+            @if (ViewBag.GetPostsByHeaderId != null)
+            {
+                @foreach (var item in ViewBag.GetPostsByHeaderId)
+                {
+        <h4 class="card-title text-center text-success"></h4>
+                }
+            }
+        <div class="preview-list">
+
+            @if (ViewBag.GetPostsByHeaderId != null)
+            {
+                @foreach (var item in ViewBag.GetPostsByHeaderId)
+                {
+                    <div class="preview-item border-bottom">
+                        <div class="preview-item-content d-flex flex-grow">
+                            <div class="flex-grow">
+                                <div>
+                                    <h6 class="preview-subject text-information">
+                                        @item.Content
+                                    </h6>
+                                </div>
+                                <div class="d-flex d-md-block d-xl-flex justify-content-between">
+                                    <p class="text-success">Beğen</p>
+                                    <p class="text-danger">Beğenme</p>
+                                    <p class="text-warning">Kullanıcıyı engelle</p>
+                                    <p class="text-muted text-small">@item.Id</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+
+
+
+        </div>
+        </div>
+    </div>
+</div>
+
+

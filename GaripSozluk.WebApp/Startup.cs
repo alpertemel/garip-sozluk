@@ -51,6 +51,8 @@ namespace GaripSozluk.WebApp
 
             services.AddScoped<IPostRepository, PostRepository>();
 
+            services.AddScoped<IPostService, PostService>();
+
             services.AddScoped<IHeaderRepository, HeaderRepository>();
 
             services.AddControllersWithViews();

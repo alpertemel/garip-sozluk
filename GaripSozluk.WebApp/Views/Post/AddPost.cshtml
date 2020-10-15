@@ -3,19 +3,45 @@
     ViewData["Title"] = "Post Ekle";
 }
 
+
+@if (Model != null)
+{
+
+    <script>
+    function test() {
+        debugger;
+         var model = {
+             HeaderId = "@Model.HeaderId",
+             //docu.getrhr("HeaderId").value
+             Content = document.getElementById("contentText").value
+    };
+    //var data =
+    $.ajax({
+        type: "POST",
+        url: "@Url.Action("AddPost","Post")",
+        data: model
+        //success: success
+        //dataType: dataType
+    });
+    }
+    </script>
+}
+@*@hi*@
 <div class="col-12 grid-margin stretch-card">
     <div class="card">
         <div class="card-body">
             <h4 class="card-title">Post Oluşturyorsunuz...</h4>
-            <form class="forms-sample" asp-controller="Post" asp-action="AddPost" method="post">
+            <form class="forms-sample" method="post">
+                @Html.HiddenFor(x => x.HeaderId)
+
+                @*<input type="hi" name="name" value="" />*@
                 <div class="form-group">
                     <label>Post İçeriği</label>
-                    <textarea class="form-control" rows="4" asp-for="Content"></textarea>
+                    <textarea class="form-control" rows="4" asp-for="Content" id="contentText"></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary mr-2">Oluştur</button>
+                <button onclick="test()" type="submit" class="btn btn-primary mr-2">Oluştur</button>
                 <button class="btn btn-dark" asp-controller="home" asp-action="index">Vazgeç</button>
             </form>
         </div>
     </div>
 </div>
-

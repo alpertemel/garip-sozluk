@@ -4,14 +4,16 @@ using GaripSozluk.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace GaripSozluk.Data.Migrations
 {
     [DbContext(typeof(GaripSozlukDbContext))]
-    partial class GaripSozlukDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201015113757_postunTitleEkelendi")]
+    partial class postunTitleEkelendi
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -105,37 +107,37 @@ namespace GaripSozluk.Data.Migrations
                         new
                         {
                             Id = 1,
-                            CreateDate = new DateTime(2020, 10, 15, 14, 41, 18, 758, DateTimeKind.Local).AddTicks(7213),
+                            CreateDate = new DateTime(2020, 10, 15, 14, 37, 56, 935, DateTimeKind.Local).AddTicks(2365),
                             Title = "Gündem"
                         },
                         new
                         {
                             Id = 2,
-                            CreateDate = new DateTime(2020, 10, 15, 14, 41, 18, 759, DateTimeKind.Local).AddTicks(9066),
+                            CreateDate = new DateTime(2020, 10, 15, 14, 37, 56, 936, DateTimeKind.Local).AddTicks(9930),
                             Title = "Debe"
                         },
                         new
                         {
                             Id = 3,
-                            CreateDate = new DateTime(2020, 10, 15, 14, 41, 18, 759, DateTimeKind.Local).AddTicks(9106),
+                            CreateDate = new DateTime(2020, 10, 15, 14, 37, 56, 936, DateTimeKind.Local).AddTicks(9981),
                             Title = "Sorunsallar"
                         },
                         new
                         {
                             Id = 4,
-                            CreateDate = new DateTime(2020, 10, 15, 14, 41, 18, 759, DateTimeKind.Local).AddTicks(9108),
+                            CreateDate = new DateTime(2020, 10, 15, 14, 37, 56, 936, DateTimeKind.Local).AddTicks(9984),
                             Title = "#Spor"
                         },
                         new
                         {
                             Id = 5,
-                            CreateDate = new DateTime(2020, 10, 15, 14, 41, 18, 759, DateTimeKind.Local).AddTicks(9110),
+                            CreateDate = new DateTime(2020, 10, 15, 14, 37, 56, 936, DateTimeKind.Local).AddTicks(9987),
                             Title = "#İlişkiler"
                         },
                         new
                         {
                             Id = 6,
-                            CreateDate = new DateTime(2020, 10, 15, 14, 41, 18, 759, DateTimeKind.Local).AddTicks(9115),
+                            CreateDate = new DateTime(2020, 10, 15, 14, 37, 56, 936, DateTimeKind.Local).AddTicks(9994),
                             Title = "#Siyaset"
                         });
                 });
@@ -156,6 +158,9 @@ namespace GaripSozluk.Data.Migrations
 
                     b.Property<int>("HeaderId")
                         .HasColumnType("int");
+
+                    b.Property<string>("HeaderTitle")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("UpdateDate")
                         .HasColumnType("datetime2");
@@ -235,14 +240,14 @@ namespace GaripSozluk.Data.Migrations
                         new
                         {
                             Id = 1,
-                            ConcurrencyStamp = "8937ef75-5be6-4ec4-8d07-00f07b2a2f92",
+                            ConcurrencyStamp = "facf6792-3850-4c9e-ae8a-3e233fb23604",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
                             Id = 2,
-                            ConcurrencyStamp = "25e17b51-ac9e-4ede-9ad0-7ae01f6149db",
+                            ConcurrencyStamp = "1ff175b6-d504-4819-a0ff-6150846548b4",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
