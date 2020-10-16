@@ -1,0 +1,34 @@
+﻿@model SearchVM
+@{
+    ViewData["Title"] = "SearchHeader";
+}
+
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title text-center">Aramış olduğunuz başlığa ait sonuçlar..</h4>
+            <div class="preview-list">
+
+
+
+                @if (ViewBag.SearchResult != null)
+                {
+                    @foreach (var item in ViewBag.SearchResult)
+                    {
+                        <div class="preview-item border-bottom">
+                            <div class="preview-item-content d-flex flex-grow">
+                                <div class="flex-grow">
+                                    <div>
+                                        <h6 class="preview-subject text-primary"><a asp-controller="post" asp-action="getpost" asp-route-HeaderId="@item.Id">@item.Title</a></h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    }
+                }
+
+            </div>
+        </div>
+    </div>
+</div>

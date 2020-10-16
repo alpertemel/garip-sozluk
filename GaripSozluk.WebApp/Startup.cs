@@ -43,6 +43,12 @@ namespace GaripSozluk.WebApp
 
             services.AddScoped<IHeaderService, HeaderService>();
 
+            services.AddScoped<ISearchService, SearchService>();
+
+            services.AddScoped<ISearchService, SearchService>();
+            
+            services.AddScoped<ISearchRepository, SearchRepository>();
+
             services.AddScoped<IUserService, UserService>();
 
             services.AddScoped<IHeaderCategoryService, HeaderCategoryService>();
