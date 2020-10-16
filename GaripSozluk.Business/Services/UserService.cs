@@ -14,6 +14,7 @@ namespace GaripSozluk.Business.Services
   public  class UserService:IUserService
     {
         private readonly SignInManager<User> _signInManager;
+        //Todo: Microsoft.AspNetCore.Identity.UserManager tipini namespace'e ekleyerek kullanmakta fayda var. kod içerisinde bu kadar uzun tutmamak daha sağlıklı, okunabilir olanı...
         private readonly Microsoft.AspNetCore.Identity.UserManager<User> _userManager;
         private readonly Microsoft.AspNetCore.Identity.RoleManager<Role> _roleManager;
         public UserService(Microsoft.AspNetCore.Identity.UserManager<User> userManager, SignInManager<User> signInManager, Microsoft.AspNetCore.Identity.RoleManager<Role> roleManager)

@@ -29,6 +29,8 @@ namespace GaripSozluk.WebApp.Controllers
         {
             _logger.LogDebug("Home>Index");
 
+
+            //Todo: Viewbag kullanmak yerine bunlara özel viewmodeller tanımlayalım ve bu verileri o modeller içinde tutalım.
             ViewBag.HeaderByCategory = _headerService.GetAllHeaderByCategoryId(id);
             ViewBag.HeaderCategoryList = _headerCategoryService.GetHeadersSelect(id);
             return View();

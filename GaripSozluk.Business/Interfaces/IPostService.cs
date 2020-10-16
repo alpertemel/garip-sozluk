@@ -10,6 +10,8 @@ namespace GaripSozluk.Business.Interfaces
    public interface IPostService
     {
         IQueryable<Post> GetAllPostByHeaderId(int id);
+
+        //Todo: servislerden dönecek olan nesneler genellikle viewmodel olsun. burada önyüze bir şey dönmemişsin ama eğer dönersen postviewmodel dön.
         Post AddPost(PostVM model);
     }
 }

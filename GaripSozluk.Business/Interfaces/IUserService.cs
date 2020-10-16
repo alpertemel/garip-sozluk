@@ -11,6 +11,7 @@ namespace GaripSozluk.Business.Interfaces
     {
         bool Register(RegisterVM model);
 
+        //Todo: buradaki user nesnemizi mümkünse hiçbir zaman ui tarafına dönmeyelim. çünkü hashlenmiş dahi olsa password dönebilir, gözden kaçabilir. 
         User GetUser(ClaimsPrincipal user);
 
         bool Login(LoginVM model);
