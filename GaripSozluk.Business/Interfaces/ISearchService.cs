@@ -9,5 +9,6 @@ namespace GaripSozluk.Business.Interfaces
     public interface ISearchService
     {
         IQueryable<Header> SearchHeader(string text);
+        IQueryable<Header> DetailSearchHeader(string text, DateTime create, int categoryid);
     }
 }

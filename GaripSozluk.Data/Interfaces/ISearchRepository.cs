@@ -9,5 +9,6 @@ namespace GaripSozluk.Data.Interfaces
     public interface ISearchRepository: IBaseRepository<Header>
     {
         IQueryable<Header> SearchHeader(string text);
+        IQueryable<Header> DetailSearchHeader(string text, DateTime create, int categoryid);
     }
 }

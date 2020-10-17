@@ -21,5 +21,13 @@ namespace GaripSozluk.Business.Services
             return _searchRepository.SearchHeader(text);
         }
 
+      public IQueryable<Header> DetailSearchHeader(string text, DateTime create, int categoryid)
+        {
+            return _searchRepository.DetailSearchHeader(text, create, categoryid);
+        }
+
+
+
+
     }
 }
